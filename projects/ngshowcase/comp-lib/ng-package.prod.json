@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/ngshowcase/comp-lib",
+  "lib": {
+    "entryFile": "src/public_api.ts"
+  }
+}

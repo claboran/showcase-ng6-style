@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="myForm" novalidate>
+    <div class="row">
+      <div class="col-2">
+        <h5>Auto:</h5>
+      </div>
+      <div class="col-6">
+      <input [typeahead]="states" formControlName="state" class="form-control" container="body">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

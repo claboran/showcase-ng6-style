@@ -76,7 +76,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "dist/ngbshowcase/comp-lib/_theme.scss"
             ],
             "scripts": [],
             "assets": [
@@ -119,6 +120,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "comp-lib": {
+      "root": "projects/ngshowcase/comp-lib",
+      "sourceRoot": "projects/ngshowcase/comp-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngshowcase/comp-lib/tsconfig.lib.json",
+            "project": "projects/ngshowcase/comp-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngshowcase/comp-lib/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngshowcase/comp-lib/src/test.ts",
+            "tsConfig": "projects/ngshowcase/comp-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ngshowcase/comp-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngshowcase/comp-lib/tsconfig.lib.json",
+              "projects/ngshowcase/comp-lib/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
