@@ -22,6 +22,7 @@ async function bundleScss() {
 
   if (found) {
     await writeFile('./dist/_theme.scss', bundledContent);
+    await writeFile('../../../dist/ngshowcase/comp-lib/_theme.scss', bundledContent);
   }
 }
 
