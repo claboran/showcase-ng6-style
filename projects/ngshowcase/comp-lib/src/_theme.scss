@@ -1,4 +1,7 @@
 
 
-$primary: red !default;
 @import '../../../../node_modules/bootstrap/scss/bootstrap';
+
+.autocom_label {
+  color: $primary;
+}
