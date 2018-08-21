@@ -15,3 +15,15 @@ and not to forget a quite interesting post about how to combine Angular 6+ works
 
 [Compiling css in new Angular 6 libraries](https://medium.com/@Dor3nz/compiling-css-in-new-angular-6-libraries-26f80274d8e5)
 
+## Rollup.js Namespace problem
+
+A known problem with rollup.js when using libraries like moment.js or interact.js is:
+
+Cannot call a namespace ('moment')
+
+could be solved by changing the import:
+
+import * as moment_ from 'moment';
+
+const moment: any = (<any>moment_).default || moment_;
+

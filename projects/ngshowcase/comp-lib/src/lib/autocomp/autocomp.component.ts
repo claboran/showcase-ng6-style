@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import * as moment_ from 'moment';
+
+// Fix to avoid Rollup.js - cannot call namespace problem
+
+const moment: any = (<any>moment_).default || moment_;
 
 @Component({
   selector: 'lib-autocomp',
@@ -9,6 +14,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class AutocompComponent implements OnInit {
 
   stateCtrl = new FormControl();
+
+  date =  moment('1995-12-25');
 
   myForm = new FormGroup({
     state: this.stateCtrl
